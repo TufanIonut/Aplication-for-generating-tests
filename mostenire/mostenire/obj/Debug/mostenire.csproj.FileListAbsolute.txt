@@ -1,0 +1,7 @@
+C:\Users\Ionut\source\repos\mostenire\mostenire\bin\Debug\mostenire.exe.config
+C:\Users\Ionut\source\repos\mostenire\mostenire\bin\Debug\mostenire.exe
+C:\Users\Ionut\source\repos\mostenire\mostenire\bin\Debug\mostenire.pdb
+C:\Users\Ionut\source\repos\mostenire\mostenire\obj\Debug\mostenire.csprojAssemblyReference.cache
+C:\Users\Ionut\source\repos\mostenire\mostenire\obj\Debug\mostenire.csproj.CoreCompileInputs.cache
+C:\Users\Ionut\source\repos\mostenire\mostenire\obj\Debug\mostenire.exe
+C:\Users\Ionut\source\repos\mostenire\mostenire\obj\Debug\mostenire.pdb

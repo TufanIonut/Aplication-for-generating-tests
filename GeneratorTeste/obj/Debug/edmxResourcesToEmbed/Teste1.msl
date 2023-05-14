@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TesteModelStoreContainer" CdmEntityContainer="TesteEntities">
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="TesteModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="questions_id" ColumnName="questions_id" />
+          <ScalarProperty Name="phrase" ColumnName="phrase" />
+          <ScalarProperty Name="answers" ColumnName="answers" />
+          <ScalarProperty Name="correct_answers" ColumnName="correct_answers" />
+          <ScalarProperty Name="points" ColumnName="points" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TesteModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

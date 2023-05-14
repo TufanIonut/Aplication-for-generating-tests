@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TesteModelStoreContainer" CdmEntityContainer="testeEntities">
+    <EntitySetMapping Name="t_Answers">
+      <EntityTypeMapping TypeName="TesteModel.t_Answers">
+        <MappingFragment StoreEntitySet="t_Answers">
+          <ScalarProperty Name="ID_Answer" ColumnName="ID_Answer" />
+          <ScalarProperty Name="AnswerTxt" ColumnName="AnswerTxt" />
+          <ScalarProperty Name="ItsTrue" ColumnName="ItsTrue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Chapters">
+      <EntityTypeMapping TypeName="TesteModel.t_Chapters">
+        <MappingFragment StoreEntitySet="t_Chapters">
+          <ScalarProperty Name="ID_Chapter" ColumnName="ID_Chapter" />
+          <ScalarProperty Name="Chapter" ColumnName="Chapter" />
+          <ScalarProperty Name="ID_Discipline" ColumnName="ID_Discipline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Disciplines">
+      <EntityTypeMapping TypeName="TesteModel.t_Disciplines">
+        <MappingFragment StoreEntitySet="t_Disciplines">
+          <ScalarProperty Name="ID_Discipline" ColumnName="ID_Discipline" />
+          <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Passwords">
+      <EntityTypeMapping TypeName="TesteModel.t_Passwords">
+        <MappingFragment StoreEntitySet="t_Passwords">
+          <ScalarProperty Name="ID_Password" ColumnName="ID_Password" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Questions">
+      <EntityTypeMapping TypeName="TesteModel.t_Questions">
+        <MappingFragment StoreEntitySet="t_Questions">
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Phrase" ColumnName="Phrase" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="DifficultyLvl" ColumnName="DifficultyLvl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_textAnswers">
+      <EntityTypeMapping TypeName="TesteModel.t_textAnswers">
+        <MappingFragment StoreEntitySet="t_textAnswers">
+          <ScalarProperty Name="ID_txtAnswer" ColumnName="ID_txtAnswer" />
+          <ScalarProperty Name="TextAnswer" ColumnName="TextAnswer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Users">
+      <EntityTypeMapping TypeName="TesteModel.t_Users">
+        <MappingFragment StoreEntitySet="t_Users">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="ID_Password" ColumnName="ID_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonalFile">
+      <EntityTypeMapping TypeName="TesteModel.PersonalFile">
+        <MappingFragment StoreEntitySet="PersonalFile">
+          <ScalarProperty Name="ID_Username" ColumnName="ID_Username" />
+          <ScalarProperty Name="id_Discipline" ColumnName="id_Discipline" />
+          <ScalarProperty Name="id_Chapter" ColumnName="id_Chapter" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="PersonalLvl" ColumnName="PersonalLvl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

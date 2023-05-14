@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TesteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Teste.dbo.PersonalFile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PersonalFile">
+    <Key>
+      <PropertyRef Name="ID_Username" />
+      <PropertyRef Name="id_Discipline" />
+      <PropertyRef Name="id_Chapter" />
+      <PropertyRef Name="points" />
+      <PropertyRef Name="PersonalLvl" />
+    </Key>
+    <Property Name="ID_Username" Type="int" Nullable="false" />
+    <Property Name="id_Discipline" Type="int" Nullable="false" />
+    <Property Name="id_Chapter" Type="int" Nullable="false" />
+    <Property Name="points" Type="int" Nullable="false" />
+    <Property Name="PersonalLvl" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="ID_Question" />
+    </Key>
+    <Property Name="ID_Question" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phrase" Type="varchar(max)" Nullable="false" />
+    <Property Name="Answer1" Type="int" Nullable="false" />
+    <Property Name="Answer2" Type="int" Nullable="false" />
+    <Property Name="Answer3" Type="int" Nullable="false" />
+    <Property Name="Answer4" Type="int" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" />
+    <Property Name="DifficultyLvl" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Answers">
+    <Key>
+      <PropertyRef Name="ID_Answer" />
+    </Key>
+    <Property Name="ID_Answer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnswerTxt" Type="int" Nullable="false" />
+    <Property Name="ItsTrue" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Chapters">
+    <Key>
+      <PropertyRef Name="ID_Chapter" />
+    </Key>
+    <Property Name="ID_Chapter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Chapter" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Discipline" Type="int" />
+  </EntityType>
+  <EntityType Name="t_Disciplines">
+    <Key>
+      <PropertyRef Name="ID_Discipline" />
+    </Key>
+    <Property Name="ID_Discipline" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Discipline" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Passwords">
+    <Key>
+      <PropertyRef Name="ID_Password" />
+    </Key>
+    <Property Name="ID_Password" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_textAnswers">
+    <Key>
+      <PropertyRef Name="ID_txtAnswer" />
+    </Key>
+    <Property Name="ID_txtAnswer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TextAnswer" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Users">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Password" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__PersonalF__id_Ch__797309D9">
+    <End Role="t_Chapters" Type="Self.t_Chapters" Multiplicity="1" />
+    <End Role="PersonalFile" Type="Self.PersonalFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Chapters">
+        <PropertyRef Name="ID_Chapter" />
+      </Principal>
+      <Dependent Role="PersonalFile">
+        <PropertyRef Name="id_Chapter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalF__id_Di__787EE5A0">
+    <End Role="t_Disciplines" Type="Self.t_Disciplines" Multiplicity="1" />
+    <End Role="PersonalFile" Type="Self.PersonalFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Disciplines">
+        <PropertyRef Name="ID_Discipline" />
+      </Principal>
+      <Dependent Role="PersonalFile">
+        <PropertyRef Name="id_Discipline" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalF__ID_Us__778AC167">
+    <End Role="t_Users" Type="Self.t_Users" Multiplicity="1" />
+    <End Role="PersonalFile" Type="Self.PersonalFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Users">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="PersonalFile">
+        <PropertyRef Name="ID_Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Answe__72C60C4A">
+    <End Role="t_Answers" Type="Self.t_Answers" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Answers">
+        <PropertyRef Name="ID_Answer" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="Answer1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Answe__73BA3083">
+    <End Role="t_Answers" Type="Self.t_Answers" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Answers">
+        <PropertyRef Name="ID_Answer" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="Answer2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Answe__74AE54BC">
+    <End Role="t_Answers" Type="Self.t_Answers" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Answers">
+        <PropertyRef Name="ID_Answer" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="Answer3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Answe__75A278F5">
+    <End Role="t_Answers" Type="Self.t_Answers" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Answers">
+        <PropertyRef Name="ID_Answer" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="Answer4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Answers__Answe__6FE99F9F">
+    <End Role="t_textAnswers" Type="Self.t_textAnswers" Multiplicity="1" />
+    <End Role="t_Answers" Type="Self.t_Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_textAnswers">
+        <PropertyRef Name="ID_txtAnswer" />
+      </Principal>
+      <Dependent Role="t_Answers">
+        <PropertyRef Name="AnswerTxt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Chapter__ID_Di__6A30C649">
+    <End Role="t_Disciplines" Type="Self.t_Disciplines" Multiplicity="0..1" />
+    <End Role="t_Chapters" Type="Self.t_Chapters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Disciplines">
+        <PropertyRef Name="ID_Discipline" />
+      </Principal>
+      <Dependent Role="t_Chapters">
+        <PropertyRef Name="ID_Discipline" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Users__ID_Pass__5EBF139D">
+    <End Role="t_Passwords" Type="Self.t_Passwords" Multiplicity="1" />
+    <End Role="t_Users" Type="Self.t_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Passwords">
+        <PropertyRef Name="ID_Password" />
+      </Principal>
+      <Dependent Role="t_Users">
+        <PropertyRef Name="ID_Password" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TesteModelStoreContainer">
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Answers" EntityType="Self.t_Answers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Chapters" EntityType="Self.t_Chapters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Disciplines" EntityType="Self.t_Disciplines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Passwords" EntityType="Self.t_Passwords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_textAnswers" EntityType="Self.t_textAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Users" EntityType="Self.t_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonalFile" EntityType="Self.PersonalFile" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PersonalFile].[ID_Username] AS [ID_Username], 
+    [PersonalFile].[id_Discipline] AS [id_Discipline], 
+    [PersonalFile].[id_Chapter] AS [id_Chapter], 
+    [PersonalFile].[points] AS [points], 
+    [PersonalFile].[PersonalLvl] AS [PersonalLvl]
+    FROM [dbo].[PersonalFile] AS [PersonalFile]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__PersonalF__id_Ch__797309D9" Association="Self.FK__PersonalF__id_Ch__797309D9">
+      <End Role="t_Chapters" EntitySet="t_Chapters" />
+      <End Role="PersonalFile" EntitySet="PersonalFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalF__id_Di__787EE5A0" Association="Self.FK__PersonalF__id_Di__787EE5A0">
+      <End Role="t_Disciplines" EntitySet="t_Disciplines" />
+      <End Role="PersonalFile" EntitySet="PersonalFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalF__ID_Us__778AC167" Association="Self.FK__PersonalF__ID_Us__778AC167">
+      <End Role="t_Users" EntitySet="t_Users" />
+      <End Role="PersonalFile" EntitySet="PersonalFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Answe__72C60C4A" Association="Self.FK__Questions__Answe__72C60C4A">
+      <End Role="t_Answers" EntitySet="t_Answers" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Answe__73BA3083" Association="Self.FK__Questions__Answe__73BA3083">
+      <End Role="t_Answers" EntitySet="t_Answers" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Answe__74AE54BC" Association="Self.FK__Questions__Answe__74AE54BC">
+      <End Role="t_Answers" EntitySet="t_Answers" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Answe__75A278F5" Association="Self.FK__Questions__Answe__75A278F5">
+      <End Role="t_Answers" EntitySet="t_Answers" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Answers__Answe__6FE99F9F" Association="Self.FK__t_Answers__Answe__6FE99F9F">
+      <End Role="t_textAnswers" EntitySet="t_textAnswers" />
+      <End Role="t_Answers" EntitySet="t_Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Chapter__ID_Di__6A30C649" Association="Self.FK__t_Chapter__ID_Di__6A30C649">
+      <End Role="t_Disciplines" EntitySet="t_Disciplines" />
+      <End Role="t_Chapters" EntitySet="t_Chapters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Users__ID_Pass__5EBF139D" Association="Self.FK__t_Users__ID_Pass__5EBF139D">
+      <End Role="t_Passwords" EntitySet="t_Passwords" />
+      <End Role="t_Users" EntitySet="t_Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
